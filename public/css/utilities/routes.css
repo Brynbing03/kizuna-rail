@@ -1,3 +1,31 @@
+/* added these for the filters containers the region filter left and the season filter right */
+#filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1rem;
+  }
+  
+  #filters .filter:first-child {
+    justify-self: start;
+  }
+  
+  #filters .filter:last-child {
+    justify-self: end;
+  }
+  
+  #filters label {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  #filters select {
+    width: 100%;
+    max-width: 260px;
+  }  
+
+
 .routes-grid {
     display: flex;
     flex-direction: column;
