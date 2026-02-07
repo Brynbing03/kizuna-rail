@@ -27,3 +27,11 @@ const yenToUsd = (yen) => {
 };
 
 export { generateConfirmationCode, kmToMiles, yenToUsd };
+
+// adding this helper function for task 4
+export function monthAbbrev(monthNumber) {
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const index = Number(monthNumber) - 1;
+    return months[index] ?? "";
+  }
+  

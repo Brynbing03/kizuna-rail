@@ -1,4 +1,5 @@
-import { generateConfirmationCode } from '../includes/helpers.js';
+// updated import for the helpers
+import { generateConfirmationCode, monthAbbrev } from '../includes/helpers.js';
 import { getDb as db } from './db-in-file.js';
 
 // ROUTE MODEL FUNCTIONS
@@ -140,18 +141,22 @@ export const getRouteWithSchedules = async (routeId) => {
 export const getCompleteRouteDetails = async (routeId) => {
     const route = await getRouteById(routeId);
     if (!route) return null;
-
+  
     const startStation = await getStationById(route.startStation);
     const endStation = await getStationById(route.endStation);
     const routeSchedules = await getSchedulesByRoute(routeId);
-
+  
+    const operatingMonthsText = route.operatingMonths.map(monthAbbrev);
+  
     return {
-        ...route,
-        startStationDetails: startStation,
-        endStationDetails: endStation,
-        schedules: routeSchedules
+      ...route,
+      operatingMonthsText,
+      startStationDetails: startStation,
+      endStationDetails: endStation,
+      schedules: routeSchedules
     };
-};
+  };
+  
 
 export const calculateTicketPrice = async (routeId, className) => {
     const route = await getRouteById(routeId);
