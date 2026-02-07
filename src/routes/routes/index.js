@@ -1,5 +1,6 @@
 import { bookingPage, processBookingRequest } from './book.js';
 import confirmationPage from './confirm.js';
+// had to change this becuase i was getting an error in the terminal
 import listRoutesPage from './list.js';
 import routeDetailsPage from './details.js';
 import { Router } from 'express';
